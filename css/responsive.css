@@ -1,0 +1,40 @@
+@media screen and (min-width: 425px) {
+	nav h1 a{
+		font-size: 18px;
+	}
+}
+
+@media screen and (min-width: 668px) {
+	nav h1 a{
+		font-size: 30px;
+	}
+
+	.filter-options select {
+		width: 300px;
+	}
+
+	.filter-options select:first-child{
+  		margin-right: 24px;
+	}
+
+	.filter-options select:last-child{
+  		margin-left: 24px;
+	}
+}
+
+
+#mainView{
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#selView{
+	display: inline-flex;
+	width: 100%;
+}
+
+/*@media screen and (min-width: 1200px){
+	#restaurant-list{
+		width: 
+	}
+}*/
