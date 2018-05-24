@@ -2,6 +2,12 @@
 	nav h1 a{
 		font-size: 18px;
 	}
+	#restaurant-name{
+		font-size: 21pt;
+	}
+	body, td, th, p{
+		font-size: 16px;
+	}
 }
 
 @media screen and (min-width: 668px) {
@@ -31,6 +37,11 @@
 #selView{
 	display: inline-flex;
 	width: 100%;
+}
+
+.inside main{
+	display: flex;
+	flex-wrap: wrap;
 }
 
 /*@media screen and (min-width: 1200px){
