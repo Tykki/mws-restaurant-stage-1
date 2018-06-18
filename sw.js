@@ -12,25 +12,25 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(PRECACHE)
       .then(cache => cache.addAll([
-  '../', // Alias for index.html
-  '../index.html',
-  '../restaurant.html',
-  '../css/styles.css',
-  '../css/responsive.css',
-  '../js/main.js',
-  '../js/dbhelper.js',
-  '../js/restaurant_info.js',
-  '../data/restaurants.json',
-  '../img/1.jpg',
-  '../img/2.jpg',
-  '../img/3.jpg',
-  '../img/4.jpg',
-  '../img/5.jpg',
-  '../img/6.jpg',
-  '../img/7.jpg',
-  '../img/8.jpg',
-  '../img/9.jpg',
-  '../img/10.jpg'
+  '/', // Alias for index.html
+  '/index.html',
+  '/restaurant.html',
+  '/css/styles.css',
+  '/css/responsive.css',
+  '/js/main.js',
+  '/js/dbhelper.js',
+  '/js/restaurant_info.js',
+  '/data/restaurants.json',
+  '/img/1.jpg',
+  '/img/2.jpg',
+  '/img/3.jpg',
+  '/img/4.jpg',
+  '/img/5.jpg',
+  '/img/6.jpg',
+  '/img/7.jpg',
+  '/img/8.jpg',
+  '/img/9.jpg',
+  '/img/10.jpg'
 
 ]))
       .then(self.skipWaiting())
@@ -39,9 +39,10 @@ self.addEventListener('install', event => {
 
 // The activate handler takes care of cleaning up old caches.
 self.addEventListener('activate', event => {
+  const currentCaches = [PRECACHE, RUNTIME];
   event.waitUntil(
     caches.keys().then(cacheNames => {
-      return cacheNames.filter(cacheName => !PRECACHE.includes(cacheName));
+      return cacheNames.filter(cacheName => !currentCaches.includes(cacheName));
     }).then(cachesToDelete => {
       return Promise.all(cachesToDelete.map(cacheToDelete => {
         return caches.delete(cacheToDelete);
@@ -62,7 +63,14 @@ self.addEventListener('fetch', event => {
           return cachedResponse;
         }
 
-        return fetch(event.request);
+        return caches.open(RUNTIME).then(cache => {
+          return fetch(event.request).then(response => {
+            // Put a copy of the response in the runtime cache.
+            return cache.put(event.request, response.clone()).then(() => {
+              return response;
+            });
+          });
+        });
       })
     );
   }
