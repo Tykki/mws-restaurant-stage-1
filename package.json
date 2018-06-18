@@ -1,0 +1,23 @@
+{
+  "name": "restaurant-stage-1",
+  "version": "1.0.0",
+  "description": "Mobile Web Specialist Course",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tykki/mws-restaurant-stage-1.git"
+  },
+  "author": "Tykki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tykki/mws-restaurant-stage-1/issues"
+  },
+  "homepage": "https://github.com/Tykki/mws-restaurant-stage-1#readme",
+  "devDependencies": {
+    "browser-sync": "^2.24.4",
+    "gulp": "^3.9.1"
+  }
+}
