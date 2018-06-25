@@ -11,11 +11,8 @@ body {
 	background-color: #fdfdfd;
 	margin: 0;
 	position:relative;
-  outline-color: purple;
 }
-body:focus{
-  outline: none !important;
-}
+
 ul, li {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 10pt;

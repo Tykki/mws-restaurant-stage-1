@@ -28,6 +28,11 @@
 	}
 }
 
+:focus, :link:focus, :visited:focus {
+    outline: 5px solid purple !important;
+
+
+}
 
 #mainView{
 	display: flex;
@@ -42,6 +47,20 @@
 .inside main{
 	display: flex;
 	flex-wrap: wrap;
+}
+
+.skip-link{
+	position: absolute;
+	top: -40px;
+	left: 0;
+	background: purple;
+	color: gold !important;
+	padding: 8px;
+	z-index: 100;
+}
+
+.skip-link:focus{
+	top: 0;
 }
 
 /*@media screen and (min-width: 1200px){
