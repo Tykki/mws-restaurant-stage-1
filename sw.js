@@ -103,3 +103,5 @@ self.addEventListener('fetch', function(event) {
       })
     );
 });
+// Fetch logic from https://developers.google.com/web/fundamentals/primers/service-workers/
+// Created by Matt Gaunt a contributor to WebFundamentals
