@@ -19,6 +19,7 @@ class DBHelper {
     // fetch('http://localhost:1337/restaurants').then(res => res.json()).then(data => console.log(data))
     fetch(DBHelper.DATABASE_URL).then(res => res.json()).then(data => {
       const restaurants = data
+      // data.forEach(d => console.log(d))
       console.log(data)
       callback(null, restaurants)
       return restaurants
