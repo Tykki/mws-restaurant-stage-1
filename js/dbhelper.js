@@ -24,26 +24,9 @@ class DBHelper {
       callback(null, restaurants)
       return restaurants
     }).catch(err => console.log(err))
-
-    // let xhr = new XMLHttpRequest();
-    // xhr.open('GET', `http://localhost:3000/data/restaurants.json`);
-    // xhr.onload = () => {
-    //   if (xhr.status === 200) { // Got a success response from server!
-    //     const json = JSON.parse(xhr.responseText);
-    //     const restaurants = json.restaurants;
-    //     console.log(restaurants)
-    //     callback(null, restaurants);
-    //   } else { // Oops!. Got an error from server.
-    //     const error = (`Request failed. Returned status of ${xhr.status}`);
-    //     callback(error, null);
-    //   }
-    // };
-    // xhr.send();
   }
 
-  // static fetchRestaurants(callback){
-  //   fetch('localhost:1337/restaurants').then(res => res.json()).then(data => console.log(data))
-  // }  
+  
 
   /**
    * Fetch a restaurant by its ID.

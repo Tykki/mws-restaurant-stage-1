@@ -44,7 +44,18 @@
   <script type="application/javascript" charset="utf-8" src="js/dbhelper.js"></script>
   <script type="application/javascript" charset="utf-8" src="js/main.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiVOqMM7e1DjhcRkufTY0i3CcO6hW-yB4&libraries=places&callback=initMap"></script>
-  <script src="indexed.js"></script>
+  <script type="module">
+  import { get, set } from 'https://cdn.jsdelivr.net/npm/idb-keyval@3/dist/idb-keyval.mjs';
+  const setToIdbWithId = async x => ((await set(x.id, x)), x)
+   fetch(DBHelper.DATABASE_URL).then(res => res.json()).then(data => {
+      data.forEach(r => {set(r.id, r)})
+      // console.log(restaurants)
+    })
+  // .then(handleAsJson)
+  // .then(setToIdbById)
+  // .then(updateUi)
+</script>
+  <!-- <script src="indexed.js"></script> -->
 
 
   <footer id="footer">

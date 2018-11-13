@@ -3,6 +3,7 @@ let restaurants,
   cuisines
 var map
 var markers = []
+// import idb from 'https://cdn.jsdelivr.net/npm/idb-keyval@3/dist/idb-keyval.mjs'
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -11,6 +12,22 @@ document.addEventListener('DOMContentLoaded', (event) => {
   fetchNeighborhoods();
   fetchCuisines();
 });
+
+storeRestData = () => {
+  DBHelper.fetchRestaurants((error, restaurants) => {
+      if (error) {
+        callback(error, null);
+      } else {
+        restaurants.find(r => r.id == id);
+        if (restaurant) { // Got the restaurant
+          callback(null, restaurant);
+        } else { // Restaurant does not exist in the database
+          callback('Restaurant does not exist', null);
+        }
+      }
+    });
+}
+
 
 /**
  * Fetch all neighborhoods and set their HTML.
@@ -178,9 +195,9 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 }
 
-// if ('serviceWorker' in navigator) {
-//   window.addEventListener('load', function() {
-//     navigator.serviceWorker.register('sw2.js');
-//   });
-// }
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('sw.js');
+  });
+}
 
